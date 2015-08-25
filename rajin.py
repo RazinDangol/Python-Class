@@ -1,19 +1,18 @@
 import re
 
-#defining word list
+# defining word list
 word_list=['is','of','the','and','or','in','on','at','you','it']
-global word_list
 
-#pointing to the file to read data from
-text_file=open('demo.txt','r')
+# pointing to the file to read data from
+text_file=open('pg11.txt','r')
 
-#defining the dictionary to store the frequency of the words 
+# defining the dictionary to store the frequency of the words 
 word_count={}
 def dict_init():
 	for word in word_list:
-		word_count[word]=0	#putting initial value of keys to 0
+		word_count[word]=0	# putting initial value of keys to 0
 
-#Defining frequency counter
+# Defining frequency counter
 def freq_count():
 	for lines in text_file:
 		lines=lines.strip("\n")
@@ -23,7 +22,7 @@ def freq_count():
 				if word.lower() == words.lower():
 					word_count[words]+=1
 
-#defining ability to add words to the wordlist				
+# defining ability to add words to the wordlist				
 def word_add():
 	word_list.sort()
 	print("The Word list are:\n\n")
@@ -43,22 +42,15 @@ def word_add():
 				print(word_list)
 				
 		else:
-			print(word_list)
 			break
 
-def freq_print():
-	sorted_list=word_list.sort()
-	print(sorted_list)
-	for word in sorted_list:
-		print("{} : {}".format(word,word_count[word]))
+
 
 def main():
-	print(word_count)
-	word_add()
-	dict_init()
-	print(word_count)
-	freq_count()
-	freq_print()
+	word_add()# adding words to word list
+	dict_init()# initiating dictionary for storing frequencies
+	freq_count()# Counting the frequency of words
+	print("The frequency of words are: ",word_count)
 
 if __name__=="__main__":
 	main()
